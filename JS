@@ -1,29 +1,43 @@
 (function() {
-    let screen = document.querySelector('.screen');
-    let buttons = document.querySelectorAll('.btn');
-    let clear = document.querySelector('.btn-clear');
-    let equal = document.querySelector('btn-equal');
-    buttons.forEach(function(button) {
-        button.addEventListener('click', function(e) {
-            let value = e.target.dataset.num;
+    const screen = document.querySelector('.screen');
+    const buttons = document.querySelectorAll('button[data-num]');
+    const clear = document.querySelector('.btn-clear');
+    const equal = document.querySelector('.btn-equal');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', e => {
+            const value = e.target.dataset.num;
             if (value !== undefined) {
                 screen.value += value;
             }
         });
     });
-    equal.addEventListener('click', function (e) {
+
+    equal.addEventListener('click', () => {
         if (screen.value === '') {
             screen.value = "Please enter";
+            setTimeout(() => screen.value = "", 1000);
         } else {
             try {
-                let answer = eval(screen.value);
-                screen.value = answer;
+                // Replace multiplication and division symbols for JS eval
+                let expression = screen.value.replace(/×/g, '*').replace(/÷/g, '/');
+                // Evaluate expression
+                let answer = eval(expression);
+                // Handle non-numeric or infinite results
+                if (answer === Infinity || answer === -Infinity || isNaN(answer)) {
+                    screen.value = "Error";
+                    setTimeout(() => screen.value = "", 1500);
+                } else {
+                    screen.value = answer;
+                }
             } catch (error) {
                 screen.value = "Error";
+                setTimeout(() => screen.value = "", 1500);
             }
         }
     });
-    clear.addEventListener('click', function(e) {
+
+    clear.addEventListener('click', () => {
         screen.value = "";
     });
-})()
+})();
