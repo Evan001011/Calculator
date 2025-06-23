@@ -2,24 +2,24 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
+}
 
-  body {
+body {
     min-height: 100vh;
     background: white;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-  }
+}
 
-  .calculator {
+.calculator {
     width: 308px;
     background: #222522;
     border-radius: 20px;
     overflow: hidden;
     margin-bottom: 1.5rem;
-  }
+}
 
 .screen {
     width: 100%;
@@ -30,35 +30,39 @@
     padding: 1.5rem;
     border: none;
     text-align: right;
-    pointer-events: auto;  /* allow scrolling */
+    pointer-events: auto;
+    /* allow scrolling */
     user-select: none;
     border-radius: 20px 20px 0 0;
     white-space: nowrap;
-    overflow-x: auto;      /* enable horizontal scroll if needed */
+    overflow-x: auto;
+    /* enable horizontal scroll if needed */
     overflow-y: hidden;
     scrollbar-width: thin;
     scrollbar-color: #444 transparent;
-  }
+}
 
-  .screen::-webkit-scrollbar {
+.screen::-webkit-scrollbar {
     height: 8px;
-  }
-  .screen::-webkit-scrollbar-thumb {
+}
+
+.screen::-webkit-scrollbar-thumb {
     background-color: #444;
     border-radius: 4px;
-  }
-  .screen::-webkit-scrollbar-track {
-    background: transparent;
-  }
+}
 
-  .button {
-    padding: 15px;          
+.screen::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.button {
+    padding: 15px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 8px;
-  }
+}
 
-  button {
+button {
     width: 60px;
     height: 60px;
     font-size: 1.5rem;
@@ -74,39 +78,39 @@
     justify-content: center;
     align-items: center;
     user-select: none;
-  }
+}
 
-  button:active {
+button:active {
     filter: brightness(110%);
-  }
+}
 
-  .btn-orange {
+.btn-orange {
     background-color: #ffb347;
     color: #fff;
-  }
+}
 
-  .btn-darkgray {
+.btn-darkgray {
     background-color: #3a3a3a;
     color: #fff;
-  }
+}
 
-  .btn-lightgray {
+.btn-lightgray {
     background-color: #8e8e93;
     color: #000;
-  }
+}
 
-  .btn-zero {
+.btn-zero {
     grid-column: span 1;
-  }
+}
 
-  .btn-mode {
+.btn-mode {
     background-color: #3a3a3a;
     color: #fff;
     font-size: 1.8rem;
     user-select: none;
-  }
+}
 
-  .btn-clear {
+.btn-clear {
     font-weight: 400;
     font-size: 1.3rem;
     padding-top: 2px;
@@ -114,4 +118,4 @@
     background-color: #8e8e93;
     color: #000;
     border-radius: 50%;
-  }
+}
